@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "lodash": "^4.17.4"
+    "eslint": "^3.19.0"
   },
   "scripts": {
     "lint": "eslint ./",
     "lint:fix": "npm run lint -- --fix"
+  },
+  "dependencies": {
+    "through2-map": "^3.0.0",
+    "lodash": "^4.17.4"
   }
 }
