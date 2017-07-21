@@ -10,6 +10,7 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
+    "concat-stream": "^1.6.0",
     "lodash": "^4.17.4",
     "split": "^1.0.0",
     "through2": "^2.0.3",
