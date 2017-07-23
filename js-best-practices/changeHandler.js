@@ -22,7 +22,7 @@ module.exports = {
 
     for (let name in coins) {
       let value = coins[name]
-      // while current coin can be used as change...
+
       while (value <= balance) {
         balance -= value
         change.push(name)
