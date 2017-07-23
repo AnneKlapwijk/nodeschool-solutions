@@ -21,7 +21,7 @@ module.exports = {
   releaseChange: function(){
     var currentBalance = balanceManager.getBalance()
     balanceManager.decreaseBalance(currentBalance)
-    return this.convertToChange(currentBalance)
+    return changeHandler.convertToChange(currentBalance)
   },
 
   vendProduct: function(productId){

@@ -5,15 +5,29 @@
 // [q]uarter
 
 const coins = {
-  p: 1,
-  n: 5,
+  q: 25,
   d: 10,
-  q: 25
+  n: 5,
+  p: 1
 }
 
 module.exports = {
   getAmount: function(coinType) {
     if (!coins[coinType]) throw new Error(`Unrecognized coin ${coinType}`)
     return coins[coinType]
+  },
+
+  convertToChange: function(balance){
+    let change = []
+
+    for (let name in coins) {
+      let value = coins[name]
+      // while current coin can be used as change...
+      while (value <= balance) {
+        balance -= value
+        change.push(name)
+      }
+    }
+    return change
   }
 }
