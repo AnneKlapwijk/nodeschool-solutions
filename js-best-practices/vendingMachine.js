@@ -1,9 +1,11 @@
-
 const balanceManager = require('./balanceManager')
 const changeHandler = require('./changeHandler')
 const productInventory = require('./productInventory')
 
 module.exports = {
+  getProducts: function() {
+    return productInventory.getProducts()
+  },
 
   insertCoin: function(coinType){
     var value = changeHandler.getAmount(coinType)
