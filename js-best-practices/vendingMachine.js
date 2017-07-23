@@ -3,24 +3,7 @@ const balanceManager = require('./balanceManager')
 const changeHandler = require('./changeHandler')
 const productInventory = require('./productInventory')
 
-var products = [
-  {
-    name: 'Skittles',
-    price: 85,
-    id: 'A1'
-  }
-]
-
 module.exports = {
-
-  getProducts: function() {
-    return products
-  },
-
-  getProduct: function(productId) {
-    var product = products.find(function(p) { return p.id === productId })
-    return product
-  },
 
   insertCoin: function(coinType){
     var value = changeHandler.getAmount(coinType)
@@ -42,7 +25,7 @@ module.exports = {
   },
 
   vendProduct: function(productId){
-    var product = this.getProduct(productId)
+    var product = productInventory.getProduct(productId)
     balanceManager.decreaseBalance(product.price)
     return product
   }
