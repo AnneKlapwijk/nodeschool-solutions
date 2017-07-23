@@ -2,6 +2,9 @@ var balance = 0
 
 module.exports = {
   canAfford: function(amount){
+    if(!this.isValidAmount(amount)) {
+      throw new Error('Invalid input')
+    }
     return amount <= balance
   },
 
@@ -20,5 +23,9 @@ module.exports = {
 
   increaseBalance: function(amount){
     balance += amount
+  },
+
+  isValidAmount: function(amount){
+    return typeof amount === 'number'
   },
 }

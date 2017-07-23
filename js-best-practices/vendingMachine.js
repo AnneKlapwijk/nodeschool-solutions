@@ -10,14 +10,6 @@ module.exports = {
     balanceManager.increaseBalance(value)
   },
 
-  isValidAmount: function(amount){
-    if(amount === null){
-      return false
-    } else {
-      return true
-    }
-  },
-
   releaseChange: function(){
     var currentBalance = balanceManager.getBalance()
     balanceManager.decreaseBalance(currentBalance)
