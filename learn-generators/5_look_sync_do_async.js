@@ -2,10 +2,8 @@ const fs = require('fs')
 
 function run (generator) {
   let it = generator(go)
-  console.log(it)
 
   function go (err, result) {
-    console.log(err, result)
     if (err) return it.throw(err)
     it.next(result)
   }
