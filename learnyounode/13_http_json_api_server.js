@@ -11,28 +11,21 @@ const port = process.argv[2]
  Add second endpoint for the path '/api/unixtime' which accepts the same
  query string but returns UNIX epoch time in milliseconds
  */
-const parseTime = (date) => {
-  return {
-    hour: date.getHours(),
-    minute: date.getMinutes(),
-    second: date.getSeconds()
-  }
-}
+const parseTime = (date) => ({
+  hour: date.getHours(),
+  minute: date.getMinutes(),
+  second: date.getSeconds()
+})
 
-const getUnixTime = (date) => {
-  return {
-    unixtime: date.getTime()
-  }
-}
+const getUnixTime = (date) => ({
+  unixtime: date.getTime()
+})
 
 const server = http.createServer((req, res) => {
-  req.setEncoding('utf8')
-
   if (req.method !== 'GET') return res.end('send me a GET\n')
 
-  const parsedUrl = url.parse(req.url, true)
-  const pathname = parsedUrl.pathname
-  const date = new Date(parsedUrl.query.iso)
+  const { pathname, query } = url.parse(req.url, true)
+  const date = new Date(query.iso)
 
   let result
   switch (pathname) {
