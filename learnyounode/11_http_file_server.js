@@ -11,9 +11,6 @@ const server = http.createServer((req, res) => {
   // req is an http.IncomingMessage, which is a Readable Stream
   // res is an http.ServerResponse, which is a Writable Stream
 
-  // If an encoding is not set, Buffer objects will be received.
-  req.setEncoding('utf8')
-
   // readable.pipe(writable)
   // all the data from readable goes into writable
   fs.createReadStream(file).pipe(res)
