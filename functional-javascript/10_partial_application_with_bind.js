@@ -9,6 +9,3 @@ function logger(namespace) {
 }
 
 module.exports = logger
-
-const warn = logger('WARN:')
-warn('this is a warning message', 'with more info')
